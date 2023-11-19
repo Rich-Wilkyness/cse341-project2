@@ -6,6 +6,6 @@ mongoose.Promise = global.Promise;
 const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
-db.users = require('./temples.js')(mongoose);
+db.users = require('./users.js')(mongoose);
 
 module.exports = db;

@@ -1,5 +1,12 @@
 const express = require('express');
-const app = require('./app');
+const cors = require('cors');
+const app = express();
+
+app
+  .use(cors())
+  .use(express.json())
+  .use(express.urlencoded({ extended: true }))
+  .use('/', require('./routes/usersRouter'));
 
 const db = require('./models');
 db.mongoose
