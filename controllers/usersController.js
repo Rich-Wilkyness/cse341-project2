@@ -18,8 +18,10 @@ exports.getAllUsers = (req, res) => {
 };
 
 exports.getUserById = (req, res) => {
-    const user_id = req.params.user.id;
-    User.find({ user_id: user_id }) 
+    console.log('user id');
+    const user_id = req.params.id;
+    console.log(user_id);
+    User.findById(user_id) 
       .then((user) => {
         if (!user)
           res
@@ -41,7 +43,6 @@ exports.createUser = (req, res) => {
         return;
     }
     const user = new User({
-        user_id: req.body.user_id,
         name: req.body.name,
         email: req.body.email,
         role: req.body.role,
@@ -68,7 +69,7 @@ exports.updateUserById = (req, res) => {
     });
   }
 
-  const id = req.params.user.id;
+  const id = req.params.id;
 
   User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then((userData) => {
@@ -76,7 +77,7 @@ exports.updateUserById = (req, res) => {
         res.status(404).send({
           message: `Cannot update user with id=${id}. Maybe user was not found!`
         });
-      } else res.send(userData, { message: "User was updated successfully." });
+      } else res.send({userData, message: "User was updated successfully." });
     })
     .catch((err) => {
       res.status(500).send({
@@ -86,7 +87,7 @@ exports.updateUserById = (req, res) => {
 };
 
 exports.deleteUserById = (req, res) => {
-  const id = req.params.user.id;
+  const id = req.params.id;
 
   User.findByIdAndRemove(id)
     .then((userData) => {

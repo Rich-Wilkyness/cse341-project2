@@ -9,7 +9,7 @@ GET {{port}}
 
 # Get a specific user by ID
 # Replace ':id' with an actual ID from your database
-GET {{port}}/5c8a1d5b0190b214360dc057
+GET {{port}}/users/5c8a1dfa2f8fb814b56fa181
 
 ###
 
