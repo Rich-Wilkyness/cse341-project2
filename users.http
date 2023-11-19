@@ -3,13 +3,13 @@
 # this is an id to use, using it as a variable does not seem to work correctly: 5c8a1d5b0190b214360dc057
 
 # Get all users
-GET {{port}}
+GET {{port}}/users
 
 ###
 
 # Get a specific user by ID
 # Replace ':id' with an actual ID from your database
-GET {{port}}/users/5c8a1dfa2f8fb814b56fa181
+GET {{port}}/users/655966f6e8d15f3dd14fc15f
 
 ###
 
@@ -19,27 +19,27 @@ POST {{port}}/users
 Content-Type: application/json
 
 {
-    "name": "John",
-    "email": "Doe",
-    "role": "johndoe@example.com",
-    "active": "green",
-    "photo": "05/10/2015",
-    "password": "hi"
-}
-
-###
-
-# Update an existing user
-# Replace ':id' with an actual ID and modify the JSON body as needed
-PUT {{port}}/users/5c8a1d5b0190b214360dc057
-Content-Type: application/json
-
-{
     "name": "user 10",
     "email": "user10@example.com",
     "role": "user",
     "active": true,
     "photo": "user-10.jpg",
+    "password": "$2a$12$VPYaAAOsI44uhq11WbZ5R.cHT4.fGdlI9gKJd95jmYw3.sAsmbvBq"
+  }
+
+###
+
+# Update an existing user
+# Replace ':id' with an actual ID and modify the JSON body as needed
+PATCH {{port}}/users/65596e9ae668bb26b4dc2507
+Content-Type: application/json
+
+{
+    "name": "user 14",
+    "email": "user14@example.com",
+    "role": "user",
+    "active": true,
+    "photo": "user-14.jpg",
     "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
 }
 
@@ -56,6 +56,6 @@ Content-Type: application/json
 
 # Delete a contact
 # Replace ':id' with the ID of the contact you want to delete
-DELETE http://localhost:3000/:id
+DELETE http://localhost:3000/users/655966f6e8d15f3dd14fc15f
 
 ###

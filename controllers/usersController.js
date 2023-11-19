@@ -18,9 +18,7 @@ exports.getAllUsers = (req, res) => {
 };
 
 exports.getUserById = (req, res) => {
-    console.log('user id');
     const user_id = req.params.id;
-    console.log(user_id);
     User.findById(user_id) 
       .then((user) => {
         if (!user)
@@ -70,8 +68,12 @@ exports.updateUserById = (req, res) => {
   }
 
   const id = req.params.id;
+  console.log("Updating user with ID:", id);
 
-  User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  console.log("Update data:", req.body);
+
+
+  User.findByIdAndUpdate(id, req.body, { new: true })
     .then((userData) => {
       if (!userData) {
         res.status(404).send({
@@ -89,7 +91,7 @@ exports.updateUserById = (req, res) => {
 exports.deleteUserById = (req, res) => {
   const id = req.params.id;
 
-  User.findByIdAndRemove(id)
+  User.deleteOne({ _id: id})
     .then((userData) => {
       if (!userData) {
         res.status(404).send({
