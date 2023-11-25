@@ -9,7 +9,7 @@ GET {{port}}/users
 
 # Get a specific user by ID
 # Replace ':id' with an actual ID from your database
-GET {{port}}/users/655966f6e8d15f3dd14fc15f
+GET {{port}}/users/6559693de8d15f3dd14fc165
 
 ###
 
@@ -31,15 +31,15 @@ Content-Type: application/json
 
 # Update an existing user
 # Replace ':id' with an actual ID and modify the JSON body as needed
-PATCH {{port}}/users/65596e9ae668bb26b4dc2507
+PATCH {{port}}/users/65598365f2f33257c0ed5c3e
 Content-Type: application/json
 
 {
-    "name": "user 14",
-    "email": "user14@example.com",
+    "name": "user 15",
+    "email": "user15@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-14.jpg",
+    "photo": "user-15.jpg",
     "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
 }
 
@@ -56,6 +56,6 @@ Content-Type: application/json
 
 # Delete a contact
 # Replace ':id' with the ID of the contact you want to delete
-DELETE http://localhost:3000/users/655966f6e8d15f3dd14fc15f
+DELETE http://localhost:3000/users/65598365f2f33257c0ed5c3e
 
 ###
