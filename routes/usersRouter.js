@@ -6,8 +6,6 @@ const usersController = require('../controllers/usersController');
 
 const { isAuthenticated } = require('../middleware/authenticate');
 
-console.log('made it to this file');
-
 // typically add authentication to creating, updating or deleting functions. depends on what you want
 router
     .route('/')
