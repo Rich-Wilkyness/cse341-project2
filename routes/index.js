@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const passport = require('passport');
-const user = require('./usersRouter');
 
 router.use('/', require('./swagger'));
-router.use('/users', (req, res, next) => {
-  user(req, res, next);
-});
+router.use('/users', require('./usersRouter.js'));
+// router.use('/users', (req, res, next) => {
+//   user(req, res, next);
+// });
 // router.use('/', 
 //     (docData = (req, res) => {
 //       let docData = {
